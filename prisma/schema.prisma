@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Member {
@@ -14,7 +14,6 @@ model Member {
   package   String
   startDate DateTime @default(now())
 
-  // 🔥 NEW FIELD
   isPaid    Boolean  @default(false)
   paidAt    DateTime?
 
