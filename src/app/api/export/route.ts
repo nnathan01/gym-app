@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import * as XLSX from "xlsx";
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   const members = await prisma.member.findMany();
