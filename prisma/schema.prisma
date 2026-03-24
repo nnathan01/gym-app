@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Member {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  package   String
+  startDate DateTime @default(now())
+
+  // 🔥 NEW FIELD
+  isPaid    Boolean  @default(false)
+  paidAt    DateTime?
+
+  createdAt DateTime @default(now())
+}
